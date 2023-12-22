@@ -75,4 +75,4 @@ jobs:
         run: dotnet restore
 
       - name : Run App
-        run: donet build -c Release --no-restore
+        run: dotnet build -c Release --no-restore
