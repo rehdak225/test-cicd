@@ -1,0 +1,22 @@
+name : continuous integration and deployment
+on:
+  push:
+    branches:
+      -main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name : Check out code
+        uses: actions/checkout@v4
+
+      - name : Setup dotnet
+        uses: actions/setup-dotnet@v3
+        with:
+            dotnet-version: '6.0.x'
+
+      - name : Restore dependency
+        run: dotnet restore
+
+      - name : Run App
+        run: donet build -c Release --no-restore
